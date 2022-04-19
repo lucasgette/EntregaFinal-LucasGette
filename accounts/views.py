@@ -134,6 +134,8 @@ def delete_avatar(request):
 
 # MI PERFIL
 
+
+@login_required
 def my_profile(request):
     user = request.user
      

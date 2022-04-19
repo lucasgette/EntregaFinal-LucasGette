@@ -81,6 +81,7 @@
             {% endif %}
 
             <br>
+            {% if user.is_authenticated %}
             <div class='create-comment'>
                 <h3>Crea un comentario</h3>
                 
@@ -90,6 +91,7 @@
                     <button class='boton' type='submit'>Enviar comentario</button>
                 </form>
             </div>
+            {% endif %}
         </div>
 
 

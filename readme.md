@@ -5,8 +5,8 @@
 En primer lugar, será necesario clonar el repositorio:
 
 ```sh
-$ git clone https://github.com/lucasgette/Entrega-LucasGette.git
-$ cd Entrega-LucasGette
+$ git clone https://github.com/lucasgette/EntregaFinal-LucasGette
+$ cd EntregaFinal-LucasGette
 
 ```
 
@@ -35,18 +35,52 @@ Luego, podremos navegar desde `http://127.0.0.1:8000/`.
 
 ## Navegar el sitio y conocer sus funcionalidades
 
-El sitio cuenta con una página de inicio, en la que podemos ver 3 tarjetas con las 3 secciones principales del sitio:
-* Peliculas
-* Series
-* Libros
+El sitio cuenta con una página de inicio (home), con un mensaje de bienvenida al sitio. Para navegar por la página, el sitio cuenta con una barra de navegación, que nos permite acceder a sus diferentes secciones, las cuales incluyen:
 
-Además, el sitio cuenta con una barra de navegación que permanece inalterada en todas las secciones, y nos permitirá navegar facilmente por todo el sitio.
+* Inicio de sesión
 
-En cada una de esas secciones, podemos:
-* Observar un listado de los elemento registrados (ya sea peliculas, series, o libros)
-* Cargar a través de un formulario, un nuevo elemento a registrar, el cual se agregará al listado y a la correspondiente base de datos.
-* Acceder a través del boton "Buscar películas/series/libros" (según corresponda), a un buscador de los elementos en cuestión.
-* Los buscadores permiten encontrar elementos según su nombre.
+En caso de contar con un usuario creado, a través del formulario de login se podrá iniciar sesión
+
+* Registro 
+
+Permite crear nuevos usuarios. Se trata de usuarios con permisos limitados. No tendrán acceso al panel de administración (para ello se deberá crear un superusuario)
+
+* Mi perfil
+
+En esta sección podemos ver nuestros datos de usuario. Para el caso del E-mail, la información no se mostrará a otros usuarios (permanece oculta). Podremos además editar nuestro perfil, agregar nombre, apellido, un avatar, descripción y sitio web.  En caso de que no se haya cargado un avatar, se asigna una imagen por defecto. En caso de no haber agregado una descipción o sitio web, este campo no aparecerá en el perfil.
+
+Además, nos permitirá visualizar los posteos realizados.
+
+* Buscador de usuarios
+
+Permite buscar otros usuarios en base a su nombre de usuario. De esta forma, podemos acceder a su perfil, donde podremos ver sus datos (con excepción del email), y los posteos realizados por esta persona (y ver sus detalles).
+
+
+* Buscador de posts
+
+Permite buscar posteos realizados por cualquier persona, utilizando como criterio de búsqueda el título del post. En caso de haber coincidencias, devuelve un listado con las mismas, y un link de acceso a los detalles del post.
+
+* Listado de todos los posts
+
+Nos permite visualizar la lista de todos los posteos realizados, ya sea propios como ajenos. Para el caso de los post ajenos únicamente permite ver los detalles. Para los post propios permite además editarlos.
+
+* Listado de posts propios
+
+Nos permite visualizar la lista de todos los posteos realizado por nosotros mismos, con un acceso a sus detalles y permitiendo además borrarlos y editarlos.
+
+
+* Creación de nuevos post
+
+Permite crear un nuevo post, que incluirá un título, subtitulo, cuerpo (que se podrá crear con un editor de texto enriquecido), author, calificación (para calificar la película sobre la cual se está haciendo la publicación), y una imagen (la cual es opcional). Además, cada post contará con una fecha de creación (establecida cuando se crea el post) y de modificación (la ultima fecha en que fue modificado.)
+
+* Edición de post:
+
+Permite editar el título, subtitulo, cuerpo, calificación e imagen del post. Al editar un post, se generará una nueva fecha de modificación.
+
+* Detalles del post
+
+Permite visualizar para cada post su fecha de creación, fecha de modificación, autor, titulo, subtitulo, cuerpo, imagen, y además los comentarios realizados sobre cada post. En la parte inferior además habrá un formulario para que el usuario loggeado pueda publicar comentarios.
+
 
 
 ## Acceso al panel de administración
@@ -69,11 +103,3 @@ Por defecto, se encuentra creado un usuario llamado staff, con algunas funcional
 
 usuario: staff
 contraseña: interno123
-
-## Funcionalidades en desarrollo
-
-* Acceso al sitio con usuario y contraseña
-* Cada usuario podrá registrar sus propias películas, series o libros
-* Para cada elemento creado, el usuario podrá realizar puntuaciones y escribir una reseña del mismo (review)
-* Cada usuario podrá editar, ver o eliminar sus propias reseñas.
-* Los usuarios podrán buscar a otros usuarios y leer las reseñas que estos hayan escrito.
