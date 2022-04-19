@@ -9,10 +9,9 @@
     <h1>Borrar comentario</h1>
     <p>¿Desea borrar el siguiente comentario?</p> 
     <p>{{comment}}</p>
-    <p>{{comment.comment}}</p>
+    <p style='color:lightblue'>{{comment.comment}}</p>
     
-    
-    <p>En caso afirmativo, el mismo será reemplazado por la imagen default.</p>
+
     <div class='form-edicion'>
         <form action="" method='post' enctype="multipart/form-data">
             {% csrf_token %}
@@ -24,7 +23,7 @@
 
             <div class='botones-edicion'>
                 <button class='boton' type="submit">Borrar</button>
-                <a class='boton' href={% url 'my_profile' %}>Volver</a>
+                <a class='boton' href={% url 'post_list' %}>Volver</a>
                 
             </div>
         </form>

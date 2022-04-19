@@ -19,8 +19,16 @@
         <ul>
         {% if object_list %}
         {% for post in object_list %}
+
+            {% if post.author == request.user %}
+            <li>
+                {{post.title}} - <a href={% url 'other_user_profile' post.author.username%}>{{post.author}}</a> - {{post.date}} - <a href={% url 'post_detail' author=post.author pk=post.pk %} >Ver Detalles</a> - 
+                <a class='post-detalles' href={% url 'edit_post' pk=post.pk %}>Editar</a> - 
+                <a class='post-detalles' href={% url 'delete_post' pk=post.pk %}>Borrar</a> 
+            </li> 
+            {% else %}
             <li>{{post.title}} - <a href={% url 'other_user_profile' post.author.username%}>{{post.author}}</a> - {{post.date}} - <a href={% url 'post_detail' author=post.author pk=post.pk %} >Ver Detalles</a></li> 
-        
+            {% endif %}
         {% endfor %}
         </ul>
 

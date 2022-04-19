@@ -125,7 +125,7 @@
                 {% else %}
                     {% if registro_exitoso %}
                         <p>{{registro_exitoso}}</p>
-                        <p><a href={% url 'login' %}>LOGIN</a></p>
+                        <p class='final-links' ><a href={% url 'login' %}>LOGIN</a></p>
                     {% else %}
                         <p>No has iniciado sesion</p>
                         <p class='final-links'><a href={% url 'login' %}>INICIAR SESION </a> - <a href={% url 'register' %}>REGISTRATE</a></p>
