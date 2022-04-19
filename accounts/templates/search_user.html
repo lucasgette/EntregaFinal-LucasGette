@@ -34,7 +34,8 @@
     <div class="resultados">
         {% if search %}
             {% if coincidences %}
-            <p>Resultados obtenidos</p>
+            <div class='list-user-reg2 '>
+            <p class ='p-result'>Resultados obtenidos</p>
             <ul class='lista-resultados'>
             {% for user in coincidences %}
                 {% if user.username == request.user.username %}
@@ -45,13 +46,27 @@
                 
             {% endfor %}
             </ul>
-
+            </div>
             {% else %}
                 <p class='resultado'>La busqueda no tiene coincidencias...</p>
             {% endif %}
 
         {% else %}
             <p class='resultado'>Aun no se ha realizado una búsqueda</p>
+         
+            <p></p>
+            {% if all_users %}
+            <div class='list-user-reg'>
+            <p>Listado de usuarios registrados</p>
+                {% for user in all_users %}
+                    {% if user.username == request.user.username %}
+                    <li>{{user.username}} (Tú) - <a class='perfil-link' href={% url 'my_profile' %}>Ver perfil</a></li>
+                    {% else %}
+                    <li>{{user.username}} - <a class='perfil-link' href={% url 'other_user_profile' user.username%}>Ver perfil</a></li>
+                     {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
         {% endif %}
 
         

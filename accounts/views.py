@@ -212,13 +212,15 @@ def users_search(request):
 
         
     else:
+        all_users = User.objects.all()
         search_form = SearchUser()
         coincidences = []
         search = False
         contexto = {
             'search_form':search_form,
             'coincidences':coincidences,
-            'search':search
+            'search':search,
+            'all_users' : all_users
         }
 
         return render(request, 'search_user.html', contexto)
