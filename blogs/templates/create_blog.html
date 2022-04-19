@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+
+
+{% block titulo %}
+<title>Crear post</title>
+{% endblock titulo %}   
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\create_post.css" %}>
+{% endblock estilos %}
+
+
+{% block loginmain %}
+
+<div class='new-post-container'>
+    <h3 class='seccion-titulo'>Crear Post</h3>
+    <form class='new-post-form' action="" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class='new-post-form-table'>
+            {{blog_form.as_table}}
+            {{blog_form.media}}
+            
+        </table>
+        <div class='new-post-form-btns'>
+            <button class='new-post-btn' type="submit">Publicar</button>
+            <a href={% url 'home' %}><button type='button' class='new-post-btn'>Volver a inicio</button></a>
+        </div>
+    </form>
+   
+    {% comment %} <p class='registrar-msje'>Si ya tienes cuenta, inicia sesión presionando <a href={% url 'login' %}>Aquí</a></p> {% endcomment %}
+</div>
+
+
+
+
+{% endblock loginmain %}

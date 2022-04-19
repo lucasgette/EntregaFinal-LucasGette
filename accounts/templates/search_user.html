@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Buscar usuarios</title>
+{% endblock titulo %}   
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\buscador.css" %}>
+{% endblock estilos %}
+
+
+
+{% block perfil %}
+<div class='contenedor-buscador'>
+    <h3>Buscador de usuarios</h3>
+    <img class='logo-busqueda' src={% static 'images/usuarios-logo.png'%} alt="">
+  
+    
+    
+    <form class='buscador-form' action="" method='post'>
+    {% csrf_token %}
+
+    {{search_form}}
+    <div class='botones'>
+        <button class='boton' type='submit'>Buscar</button>
+        <a class='boton' href={% url 'users_search'%}>Borrar Busqueda</a>
+        <button class='boton' type='reset'>Limpiar</button>
+    </div>
+
+    </form>
+    <br>
+
+    <div class="resultados">
+        {% if search %}
+            {% if coincidences %}
+            <p>Resultados obtenidos</p>
+            <ul class='lista-resultados'>
+            {% for user in coincidences %}
+                {% if user.username == request.user.username %}
+                    <li>{{user.username}} (Tú) - <a class='perfil-link' href={% url 'my_profile' %}>Ver perfil</a></li>
+                {% else %}
+                    <li>{{user.username}} - <a class='perfil-link' href={% url 'other_user_profile' user.username%}>Ver perfil</a></li>
+                {% endif %}
+                
+            {% endfor %}
+            </ul>
+
+            {% else %}
+                <p class='resultado'>La busqueda no tiene coincidencias...</p>
+            {% endif %}
+
+        {% else %}
+            <p class='resultado'>Aun no se ha realizado una búsqueda</p>
+        {% endif %}
+
+        
+        
+    </div>
+</div>
+
+
+<div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
+
+{% endblock perfil %}

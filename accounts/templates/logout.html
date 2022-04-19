@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Logout</title>
+{% endblock titulo %}   
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\log-reg.css" %}>
+{% endblock estilos %}
+
+
+{% block loginmain %}
+
+<div class='log-reg-card'>
+
+
+<h2 class='logout-titulo'>Te has deslogueado correctamente</h2>
+<p class='logout-msje'>¡Muchas gracias por visitarnos!</p>
+<div class='btn-sec'>
+    <a class='boton' href={% url 'login' %}>Iniciar sesión</a>  
+    <a class='boton' href={% url 'home' %}>Volver a inicio</a>
+</div>
+
+
+
+
+</div>
+
+{% endblock loginmain %}

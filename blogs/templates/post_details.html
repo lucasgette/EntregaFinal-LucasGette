@@ -1,0 +1,103 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Detalles del post</title>
+{% endblock titulo %}   
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\postdetails.css" %}>
+{% endblock estilos %}
+
+{% block post %}
+<div class='container'>
+    <div class='main-contenedor'>
+        <p class='date'>Fecha de publicación {{post.date}}</p>
+        <h2>{{post.title}}</h2>
+        <h3>{{post.subtitle}}</h3>
+
+
+        
+
+
+
+        <div class='post-body'>{{post.body | safe}}</div>
+        <br>
+        <p class='p-calification'>Calificación otorgada: {{post.calification}}/10</p>
+        {% if  post.blog_image%}
+        <img class='post-image' src={{post.blog_image.url}} alt="">
+        {% endif %}
+        <br>
+
+
+    
+
+        <div class='author-details'>
+            <img src={{post.author.userprofile.avatar.url}} alt="">
+            <div class='author'>
+                <p class='p-author'><span class='etiqueta'>Author:</span> {{post.author.username}} - <a href={% url 'other_user_profile' post.author.username%}>Ver perfil</a></p>
+                
+                {% if post.author == request.user %}
+                    <p class='p-modified'><span class='etiqueta'>Fecha ultima modificación: </span> {{post.modification_date}} -
+                        <a class='post-detalles' href={% url 'edit_post' pk=post.pk %}>Editar</a> -
+                        <a class='post-detalles' href={% url 'delete_post' pk=post.pk %}>Borrar</a>
+                    </p>
+                {% else %}
+                    <p class='p-modified'><span class='etiqueta'>Fecha ultima modificación: </span> {{post.modification_date}}</p>
+                {% endif %}
+            </div>
+            
+        </div>
+        <hr><br>
+        <div>
+            <h3>Comentarios</h3>
+
+
+            
+            {% if comments %}
+                {% for comentario in comments  %}
+                    <div class = 'comment-card'>
+                        <div class = 'comment-card-data'>   
+                            
+                            <div>
+                                <img src={{comentario.commentator.userprofile.avatar.url}} alt="">
+                            </div>
+                            <div>
+                                <p><a href={% url 'other_user_profile' username=comentario.commentator.username%}>{{comentario.commentator}}</a> - {{comentario.date}}</p>
+                                <p>{{comentario.comment}}</p>                                        
+                            </div>
+                           
+                        </div>       
+                        {%  if comentario.commentator == request.user or post.author == request.user%}
+                            <p class='p-commentario'><a class='eliminar-comentario' href="{% url 'delete_comment' pk=post.pk pkcomment=comentario.pk%}?next={{ request.path|urlencode }}">Eliminar comentario</a></p>           
+                        {% endif %} 
+                    
+                    </div>
+                        
+                {% endfor %}
+                
+            {% else %}         
+                <p>Este post no tiene comentarios</p>
+            {% endif %}
+
+            <br>
+            <div class='create-comment'>
+                <h3>Crea un comentario</h3>
+                
+                <form action="" method='post'>
+                    {% csrf_token %}
+                    {{comment_form}}
+                    <button class='boton' type='submit'>Enviar comentario</button>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
+
+{% endblock post %}        

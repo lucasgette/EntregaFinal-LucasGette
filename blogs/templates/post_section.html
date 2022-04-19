@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Sección post</title>
+{% endblock titulo %}   
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\post-section.css" %}>
+{% endblock estilos %}
+
+{% block post %}
+<div class='container'>
+    
+    <div class='main-contenedor'>
+        <h1 style="text-align: center">Sección de posteos</h1>
+        <div class='ps-cards'>
+            <div class='ps-card'>
+                <div class='ps-card-text'>
+                    <h3>Mis posts</h3>
+                    <img class= 'card-logo' src={% static 'images\myposts.png' %} alt="">
+                    <p>En esta sección podrás ver el listado de posteos que has realizado, y acceder a ellos para ver sus detalles, modificarlos y borrarlos.</p>
+                </div>
+                <div class='ps-card-botones'>
+                    <a class='boton' href={% url 'new_post' %}>Crear post</a>
+                    <a class='boton' href={% url 'my_post_list' %}>Ver mis posts</a>
+
+                </div>
+            </div>
+
+            <div class='ps-card'>
+                <div class='ps-card-text'>
+                    <h3>Listado de posts</h3>
+                    <img class= 'card-logo' src={% static 'images\listadoposts.png' %} alt="">
+                    <p>En esta sección podrás ver el listado de posts publicados por todos los usuario, y acceder a ellos para ver sus detalles.</p>
+                </div>
+                <div class='ps-card-botones'>
+                    <a class='boton' href={% url 'post_list' %}>Ir al listado</a>
+                </div>
+            </div>
+
+            <div class='ps-card'>
+                <div class='ps-card-text'>
+                    <h3>Buscador</h3>
+                    <img class= 'card-logo' src={% static 'images\busquedaposts.png' %} alt="">
+                    <p>En esta sección podrás buscar los posteos realizados por todos los usuarios (incluyendo los propios), en base a su tìtulo.</p>
+                </div>
+                <div class='ps-card-botones'>
+                    <a class='boton' href={% url 'post_search' %}>Ir al buscador</a>
+                </div>
+        
+            </div>
+        </div>
+
+        {% comment %} <ul style='color:white'>
+            
+            <li><a href={% url 'my_post_list' %}>Mis posts</a></li>
+            <li><a href={% url 'new_post' %}>Crear posts</a></li>
+            <li><a href={% url 'post_list' %}>Todos los posts</a></li>
+            <li><a href={% url 'post_search' %}>Buscador</a></li>
+        </ul> {% endcomment %}
+
+
+
+
+    </div>
+
+</div>
+
+<div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
+
+{% endblock post %}        

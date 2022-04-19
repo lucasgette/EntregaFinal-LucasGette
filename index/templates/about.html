@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Sobre mí</title>
+{% endblock titulo %}   
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\post_list.css" %}>
+{% endblock estilos %}
+
+{% block post %}
+<div class='container'>
+ 
+    <div class='main-contenedor'>
+        <h1>Sobre mí</h1>
+        <p class='subtitulo'>Mi nombre es Lucas Gette. Tengo 27 años, y soy de La Pampa. Me recibí de contador público en la UNC FCE, profesión que ejerzo hoy en día. Úlimtamente me he interesado en la programación y ciencia de datos, lo que me ha llevado a hacer diferentes cursos en esas materias.</p>
+        <p>Este sitio web fue realizado con motivo de la entrega final del curso de Python de Coderhouse. Para su realización hice uso de los conocimientos adquiridos a lo largo del curso, como así también de la documentación de Django y numerosas fuentes de consulta de internet, para resolver problemas puntuales en el desarrollo del código.</p>
+        <p>Tengo pensado seguir profundizando mis conocimientos en programación, para pronto lanzarme al mercado laboral en ese ámbito. Comparto mi link de linkedin y los invito a agregarme a su red de contactos :)</p>
+        <p><a href="https://www.linkedin.com/in/lucas-gette/" target=_blank >Linkedin</a></p>
+ 
+
+
+    </div>
+
+</div>
+
+
+<div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
+{% endblock post %}        

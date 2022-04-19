@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "css\style.css" %}>
+    <link rel="stylesheet" href={% static "css\nav-style.css" %}>
+    <script src={% static "javascript\script.js" %} defer></script>
+    {% block estilos %}
+    
+    {% endblock estilos %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@300;400;500;600&family=Oswald:wght@300;400;500&family=Varela+Round&display=swap" rel="stylesheet">
+    {% block titulo %}
+    <title>Inicio</title>
+    {% endblock titulo %}   
+    
+
+</head>
+
+<body>
+    <div class='super-container'>
+        <div class:'sub-container'>
+            {% if user.is_authenticated %}
+                <nav>
+                    <div class="cont-izq">
+                        <div>
+                            <button class="hamburguesa">
+                                <span></span>
+                            </button>
+                        </div>
+                        
+                        <a href={% url 'home' %}><img class='pagina-logo' src="{% static 'images/logo-1.png' %}" alt=""></a>
+                        
+                        
+                        <ul class="lista-enlaces">
+                            {% comment %} <li><a href={% url 'inicio' %}>Inicio</a></li>
+                            <li><a href={% url 'buscar_usuario' %}>Buscar usuarios</a></li>
+                            <li><a href={% url 'buscar_reviews' %}>Buscador Reviews</a></li> {% endcomment %}
+                            <li><a href={% url 'home' %}>Inicio</a></li>
+                            <li><a href={% url 'users_search' %}>Buscar usuarios</a></li>
+                            <li><a href={% url 'post_section' %}>Sección Posts</a></li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="cont-usuario">
+                        
+                        <p>Bienvenido/a, {{request.user.username}}</p>
+                        <div><img class='perfil-logo' src='{{request.user.userprofile.avatar.url}}' alt=""></div>
+                        
+                    </div>
+                    <div class="control-usuario">
+                        <ul>
+                            {% comment %} <li><a href={% url 'my_profile' %}>Perfil</a></li>
+                            <li>Mis Reviews</li>
+                            <li><a href={% url 'logout' %}>Logout</a></li> {% endcomment %}
+                            <li><a href={% url 'my_profile' %}>Perfil</a></li>
+                            <li><a href={% url 'my_post_list' %}>Mis Reviews</a></li> 
+                            <li><a href={% url 'logout' %}>Logout</a></li>
+                
+                        </ul>
+                    </div>
+                </nav>
+            {% else %}
+
+                <nav>
+                    <div class="cont-izq">
+                        <a href={% url 'home' %}><img class='pagina-logo' src="{% static 'images/logo-1.png' %}" alt=""></a>       
+                    </div>
+
+                    <div class="cont-usuario">
+                    </div>
+
+                    <div class="sesion-nav">
+
+                        <a href={% url 'login' %}>Login</a>
+                        <a href={% url 'register' %}>Registrate</a>
+        
+                
+                        </ul>  {% comment %} Revisar que no haya un error acá. Falta apertura del TAG ul {% endcomment %}
+                    </div>
+                </nav>
+
+            
+
+            {% endif %}
+
+
+
+        {% block loginmain %}
+        {% block logout %}
+        {% block perfil %}
+        {% block nuevo_post %}
+        {% block post %}
+
+
+            <div class='contenedor-inicio'>
+                <div class='sub-contenedor-inicio'>
+                    <br>
+                    <img class='pagina-logo-grande' src="{% static 'images/logo-1.png' %}" alt="">
+                    <br>
+                    
+                    <div class='texto-bienvenida'></div>
+                    <p style='color:#ccc'> “Las películas tocan nuestros corazones, despiertan nuestra visión, y cambian nuestra forma de ver las cosas. Nos llevan a otros lugares. Nos abren las puertas y las mentes. Las películas son los recuerdos de nuestra vida. Tenemos que seguir con vida” - Martin Scorsesse</p>
+                    <p style='color:white'>Rave reviews es un punto de encuentro para quienes aman el cine, y desean dejar sus opiniones y críticas. En este sitio podrás escribir tus propias reviews de 
+                        tus películas favoritas, calificarlas, e interactuar con una gran comunidad de personas, leer sus propias críticas y dejar comentarios. </p>
+                    <p style='color:white'>Procurando siempre actuar en forma respetuosa ante las opiniones de los demás, el debate siempre está permitido y es bienvenido.</p> 
+                    <img class='pagina-logo-2' src="{% static 'images/logo-2.png' %}" alt="">
+                </div>
+
+                {% comment %} Si está logeado en la página, le da la opción de deslogearse {% endcomment %}
+
+                {% if user.is_authenticated %}
+                <p class='info-log'>Actualmente estas logeado/a como <b>{{user.username}}</b></p>    
+                <p class='final-links'><a href={% url 'logout' %}>Logout</a> - <a href={% url 'my_profile' %}>Perfil</a> </p>
+
+                {% comment %} <p><a href={% url 'logout' %}>Logout</a> - <a href={% url 'miperfil' %}>Perfil</a> </p>
+                <p><a href={% url 'reviews' %}>Reviews</a> </p> {% endcomment %}
+
+                {% comment %} Si no está logeado en la página, le da la opción de iniciar sesión {% endcomment %}
+                {% else %}
+                    {% if registro_exitoso %}
+                        <p>{{registro_exitoso}}</p>
+                        <p><a href={% url 'login' %}>LOGIN</a></p>
+                    {% else %}
+                        <p>No has iniciado sesion</p>
+                        <p class='final-links'><a href={% url 'login' %}>INICIAR SESION </a> - <a href={% url 'register' %}>REGISTRATE</a></p>
+                    {% endif %}
+
+                {% endif %}
+
+            </div>
+            
+        {% endblock post %}
+        {% endblock nuevo_post %}
+        {% endblock perfil %}
+        {% endblock logout %}
+        {% endblock loginmain %}
+    </div>
+
+<div class='sub-container'>
+    <footer class = 'footer'>
+        <p class='texto-footer'>© Todos los derechos reservados</p>
+        <p><a href={% url 'about' %}>About</a></p>
+    </footer> 
+</div>
+</div>
+</body>
+
+
+
+
+</html>

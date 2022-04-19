@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Lista de posts</title>
+{% endblock titulo %}   
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\post_list.css" %}>
+{% endblock estilos %}
+
+{% block post %}
+<div class='container'>
+ 
+    <div class='main-contenedor'>
+        <h1>Listado de posts</h1>
+        <p class='subtitulo'>Posts publicados por todos los usuarios del sitio</p>
+        <img class='list-logo' src={% static 'images\listadoposts.png' %} alt="">
+        <ul>
+        {% for post in object_list %}
+            <li>{{post.title}} - <a href={% url 'other_user_profile' post.author.username%}>{{post.author}}</a> - {{post.date}} - <a href={% url 'post_detail' author=post.author pk=post.pk %} >Ver Detalles</a></li> 
+        
+        {% endfor %}
+        </ul>
+
+ 
+
+
+    </div>
+
+</div>
+
+
+<div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
+{% endblock post %}        

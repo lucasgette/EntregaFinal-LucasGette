@@ -1,0 +1,301 @@
+/* Estilos de inicio */
+
+html {
+    /* background: linear-gradient(130deg, #404be2 60%, #2b2b2b 40%); */
+    background-color: #404be2;
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+    min-height: 100%;
+    box-sizing: border-box;
+    
+}
+
+
+body {
+    margin: 0;
+    padding: 0;    
+    min-height: 100%;
+    height: 100vh;
+    
+    
+}
+
+.titulo-inicio {
+    color: rgb(255, 255, 255);
+}
+
+.sub-contenedor-inicio {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    padding: 50px;
+    margin: 25px auto;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    width: 90%;
+    align-items: center;
+    
+}
+.sub-contenedor-inicio p{
+    text-align: center;
+
+}
+
+.contenedor-inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pagina-logo-grande {
+    display: flex;
+    max-width: 350px;
+    
+}
+.pagina-logo-2 {
+    display: flex;
+    max-width: 200px;
+    
+}
+
+
+
+/* Estilo botones propios */
+
+.boton {
+    padding: 10px 30px;
+    font-family: 'Varela Round';
+    background-color: #404be2;
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #404be2;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.boton:hover {
+    transition: all 0.2s;
+    transform: scale(1.1);
+    background-color: #161a1b;
+}
+
+/* Estilo edición usuario */
+
+.contenedor-edicion {
+    background-color: rgba(31, 31, 31, 0.95);
+    color: #FFF;
+    padding: 20px;
+    box-sizing: border-box;
+
+    margin: 20px auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-edicion {
+    display: flex;
+    max-width: 500px;
+    flex-direction: column;
+
+}
+
+
+input {
+    width: 100%;
+    font-size: 1rem;
+    display: block;
+    padding: 10px;
+    margin: 5px auto;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.5s;
+    box-sizing: border-box;
+    
+}
+
+textarea {
+    width: 100%;
+    font-size: 1rem;
+    display: block;
+    padding: 10px;
+    margin: 5px auto;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.5s;
+    box-sizing: border-box;
+    
+}
+
+.contenedor-img {
+    display: flex;
+    max-width: 450px;
+    justify-content: center;
+}
+.imagen-edicion {
+    display: flex;
+    max-width: 150px;
+    align-self: center;
+    margin: 25px 0;
+    
+
+}
+
+.botones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+input#file-upload-button {
+    padding: 10px 30px;
+    font-family: 'Varela Round';
+    background-color: #4b4b4b;
+    text-decoration: none;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+   
+    text-align: center;
+    
+}
+
+
+
+#file-upload-button:hover {
+    transition: all 0.2s;
+    transform: scale(1.1);
+    background-color: #161a1b;
+}
+
+.edit-avatar {
+    width: 300px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.msj-default {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.botones-edicion {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-edicion form p input:focus {
+    transition: all 0.5s;
+    transform: scale(1.02);
+    border: none;
+    background-color: #161a1b;
+    color: #FFF;    
+}
+
+.form-edicion form p textarea:focus {
+    transition: all 0.5s;
+    transform: scale(1.02);
+    border: none;
+    background-color: #161a1b;
+    color: #FFF;    
+}
+
+
+.borrar-foto {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(201, 201, 201);
+}
+
+#id_confirmation {
+    display: inline-block;
+    
+}
+
+.django-ckeditor-widget {
+
+    margin: auto;
+}
+
+.info-log {
+    color: #DDD;
+    margin: 0;
+}
+
+.final-links {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0px 30px 0;
+}
+
+
+.final-links a {
+    text-decoration: none;
+    color: #DDD;
+    transition: all 0.3s;
+    margin: 0 10px;
+
+}
+
+.final-links a:hover {
+    color: #9940e2;
+    transform: scale(1.5);
+    
+}
+
+.relleno {
+    height: 100%;
+}
+
+.super-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.footer {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #222;
+    color: #fff;
+    box-shadow: 0px 0px 4px #222;
+}
+
+.texto-footer {
+    margin: 0;
+}
+
+.footer a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: rgb(221, 143, 236);
+    
+}
+
+.boton a {
+    text-decoration: none;
+    color: #FFF;
+}

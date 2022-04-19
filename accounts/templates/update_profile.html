@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Actualizar perfil</title>
+{% endblock titulo %}   
+
+{% block loginmain %}
+<div class='contenedor-edicion'>
+    <h1>Editar perfil</h1>
+    <div class='form-edicion'>
+        <form action="" method='post' enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{user_form.as_p}}
+                
+                {{profile_form.as_p}}
+
+                {% if  request.user.userprofile.avatar == 'default.jpg' %}
+                <img class='edit-avatar' src="{{request.user.userprofile.avatar.url}}" alt="Foto de perfil">
+                <p class='msj-default'>Default avatar</p>
+                {% else %}
+                <img class='edit-avatar' src="{{request.user.userprofile.avatar.url}}" alt="Foto de perfil">
+                <p><a class='borrar-foto' href={% url 'delete_avatar'%}>Borrar foto (x)</a></p>
+                    
+
+                {% endif %}
+                
+            </table>
+            {% comment %} <div class='contenedor-img'>
+                <a href="{{request.user.perfilusuario.imagen.url}}" target=_blank><img class='imagen-edicion' src="{{request.user.perfilusuario.imagen.url}}" alt="Foto perfil"></a>
+            </div> {% endcomment %}
+            <div class='botones-edicion'>
+                <button class='boton' type="submit">Guardar cambios</button>
+                <button class='boton' type="reset">Reset</button>
+                <button class='boton' ><a href={% url 'my_profile' %}>Volver</a></button>
+            </div>
+        </form>
+</div>
+
+<div></div>
+
+
+{% endblock loginmain %}

@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Eliminar Avatar</title>
+{% endblock titulo %}   
+
+{% block loginmain %}
+<div class='contenedor-edicion'>
+    <h1>Borrar avatar</h1>
+    <p>¿Desea borrara su Avatar? En caso afirmativo, el mismo será reemplazado por la imagen default.</p>
+    <div class='form-edicion'>
+        <form action="" method='post' enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                <p style='text-align:center'>Tilda la casilla para confirmar</p>
+                {{confirmation.as_p}}    
+            </table>
+            {% comment %} <div class='contenedor-img'>
+                <a href="{{request.user.perfilusuario.imagen.url}}" target=_blank><img class='imagen-edicion' src="{{request.user.perfilusuario.imagen.url}}" alt="Foto perfil"></a>
+            </div> {% endcomment %}
+            <div class='botones-edicion'>
+                <button class='boton' type="submit">Borrar</button>
+                <a class='boton' href={% url 'my_profile' %}>Volver</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div class='final-links'><a href={% url 'home' %}>
+    Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a>
+</div>
+
+{% endblock loginmain %}

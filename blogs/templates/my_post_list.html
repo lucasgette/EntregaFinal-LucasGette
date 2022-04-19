@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Mi lista de posts</title>
+{% endblock titulo %}   
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\post_list.css" %}>
+{% endblock estilos %}
+
+{% block post %}
+<div class='container'>
+ 
+    <div class='main-contenedor'>
+        <h1>Mi listado de posts </h1>
+        <p class='subtitulo'>Posts publicados por mí</p>
+        <div class='img-cont'>
+
+            <img class='list-logo perfil' src='{{request.user.userprofile.avatar.url}}' alt="">
+        </div>
+        {% if posts_list %}
+            <ul>
+                {% for post in posts_list %}
+                    <li>
+                        {{post.title}} - {{post.author}} - {{post.date}} - <a href={% url 'post_detail' author=post.author pk=post.pk %} >Detalles</a> -  
+                        <a class='post-detalles' href={% url 'edit_post' pk=post.pk %}>Editar</a> - 
+                        <a class='post-detalles' href={% url 'delete_post' pk=post.pk %}>Borrar</a> 
+                    </li>
+                {% endfor %}
+            </ul>
+    
+        {% else %}
+        <p>Aun no has publicado nada...</p>
+        {% endif %}
+
+ 
+
+
+    </div>
+
+</div>
+
+
+<div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
+
+
+{% endblock post %}        

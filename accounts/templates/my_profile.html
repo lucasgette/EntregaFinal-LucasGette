@@ -1,0 +1,127 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+<title>Mi perfil</title>
+{% endblock titulo %}   
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\profile.css" %}>
+{% endblock estilos %}
+
+
+
+
+{% block perfil %}
+<div class='perfil-grilla'>
+    <div class='main-contenedor'>
+        <div class='cont-tarjeta'>
+            <h3 class='titulo-perfil'>{{request.user.username}}</h3>
+            <div class='tarjeta-perfil'>
+
+                <div class='contenedor-avatar'>
+                    <img class='perfil-avatar' src="{{request.user.userprofile.avatar.url}}" alt="Foto de perfil">    
+                </div>
+
+                <div class='contenedor-datos'>
+                    
+                    <p><span class='prop'>Usuario: </span>{{usuario.username}}</p>
+                    
+                    {% if nombre %}
+                    <p><span class='prop'>Nombre: </span>{{nombre}}</p>
+                    {% else %}
+                        <p><span class='prop'>Nombre: </span>Sin datos...</p>
+                    {% endif %}
+
+                    {% if apellido %}
+                    <p><span class='prop'>Apellido: </span>{{apellido}}</p>
+                    {% else %}
+                    <p><span class='prop'>Apellido: </span>Sin datos...</p>
+                    {% endif %}
+                    
+                    {% if email %}
+                    <p><span class='prop'>Email: </span>{{email}}</p>
+                    {% else %}
+
+                    {% endif %}
+
+                    {% if website %}
+                    <p><span class='prop'>Website: </span><a style="text-decoration:none; color:white" href="{{website}}" target='_blank'>{{website}}</a></p>
+                    {% else %}
+
+                    {% endif %}
+
+                    {% if description %}
+                    <p><span class='prop'>Sobre mi: </span>{{description}}</p>
+                    {% else %}
+
+                    {% endif %}
+
+                    <p><span class='prop-2'>Fecha de registro: {{date_joined}}</span></p>
+                    
+                
+                </div>
+                
+            </div>
+        
+
+            <div class='botones-perfil'>
+                <br>
+                {% if request.user.username == usuario.username %}
+                    <a class='boton' href={% url 'update_profile' %}> Editar perfil</a>
+
+                {% else %}
+                
+                {% endif %}
+            
+                <a class='boton' href={% url 'my_post_list' %}>Ver Posts</a>  
+                <a class='boton' href={% url 'new_post' %}>Crear post</a>
+                
+                {% comment %} <a class='boton' href={% url 'reviews' %}>Ver Posts</a>  
+                <a class='boton' href={% url 'crear_post' %}>Crear post</a> {% endcomment %}
+            </div>
+        </div>
+        <hr>
+
+    
+        <div class='post-section'>
+            <h2>Publicaciones de {{usuario}}</h2>
+
+            {% if posts %}
+                {% for post in posts %}
+
+                    <p class='post-item'>
+                        <span class='post-titulo'>{{post.title}} </span> -
+                        <span class='post-calificacion'>Calificación: {{post.calification}}/10 - {{post.date}}</span> -  
+                        <a class='post-detalles' href={% url 'post_detail' author=post.author pk=post.pk %}>Ver detalles</a> - 
+                        <a class='post-detalles' href={% url 'edit_post' pk=post.pk %}>Editar</a> - 
+                        <a class='post-detalles' href={% url 'delete_post' pk=post.pk %}>Borrar</a> 
+                        {% comment %} <a class='post-detalles' href={% url 'editar_review' author=post.author pk=post.pk %}>Editar</a> - 
+                        <a class='post-detalles' href={% url 'borrar_review' author=post.author pk=post.pk %}>Borrar</a>   {% endcomment %}
+                        
+                    </p>
+
+                {% endfor %}
+            
+            {% else %}
+                <p>El usuario no ha realizado ninguna review por el momento...</p>
+            {% endif %}
+
+
+        </div> 
+        
+
+
+
+
+    </div>
+
+
+
+  
+</div>
+
+
+<div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
+
+{% endblock perfil %}

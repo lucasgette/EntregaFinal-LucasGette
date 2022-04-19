@@ -1,0 +1,106 @@
+html {
+    /* background: linear-gradient(130deg, #404be2 60%, #2b2b2b 40%); */
+    background-color: #404be2;
+    height: 100%;
+
+    /* font-family: 'Anybody', cursive; */
+    /* font-family: 'Oswald', sans-serif; */
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    
+}
+.main-contenedor {
+    background-color: rgba(31, 31, 31, 0.95);
+    color: #FFF;
+    padding: 20px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    margin: 30px auto;
+    margin-bottom: 15px;
+    width: 95%;
+}
+
+
+.ps-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.ps-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    color: #f5f5f5;
+    background-color: rgba(63, 63, 63, 0.856);
+    padding: 15px;
+    margin: 15px;
+    min-width: 300px;
+    width: 30%;
+    box-sizing: border-box;
+    height: 400px;
+    transition: all 0.4s ease;
+}
+
+
+
+.ps-card:hover {
+    transform: scale(1.05);
+
+}
+
+
+.ps-card-text {
+    text-align: center;
+ 
+}
+.ps-card-text img {
+    transition: all 0.5s ease;
+}
+
+.ps-card-text img:hover {
+    transform: rotateY(360deg);
+ 
+}
+
+.card-logo {
+    height: 70px;
+    width: 70px;
+    margin: 10px;
+}
+
+.ps-card p {
+    width: 90%;
+    margin: auto;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.ps-card-botones {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-self: flex-end;
+}
+
+.ps-card-botones .boton {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.ps-card-botones .boton:hover {
+    transform: scale(1.05);
+}
+
