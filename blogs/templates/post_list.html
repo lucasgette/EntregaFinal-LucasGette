@@ -17,11 +17,16 @@
         <p class='subtitulo'>Posts publicados por todos los usuarios del sitio</p>
         <img class='list-logo' src={% static 'images\listadoposts.png' %} alt="">
         <ul>
+        {% if object_list %}
         {% for post in object_list %}
             <li>{{post.title}} - <a href={% url 'other_user_profile' post.author.username%}>{{post.author}}</a> - {{post.date}} - <a href={% url 'post_detail' author=post.author pk=post.pk %} >Ver Detalles</a></li> 
         
         {% endfor %}
         </ul>
+
+        {% else %}
+        <p>Aún no se ha publicado nada...</p>
+        {% endif %}
 
  
 
