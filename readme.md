@@ -107,7 +107,7 @@ Y posteriormente ingresar el nombre de usuario y la contraseña a establecer. Un
 
 
 
-Por defecto, se encuentra creado un usuario llamado staff, con algunas funcionalidades específicas limitadas (puede crear, actualizar y modificar elementos). 
+Por defecto, se encuentra creado un usuario llamado probando, que no tiene permisos para acceder al panel de administración. 
 
-usuario: staff
-contraseña: interno123
+usuario: probando
+contraseña: usuarioprobando
