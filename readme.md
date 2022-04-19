@@ -1,5 +1,13 @@
 # RaveReviews sitio web
 
+## Miembros del grupo
+
+El trabajo fue realizado en forma individual, siendo elaborado en su totalidad por mì (Lucas Gette).
+
+
+
+
+
 ## Configuración
 
 En primer lugar, será necesario clonar el repositorio:
