@@ -107,7 +107,7 @@ Y posteriormente ingresar el nombre de usuario y la contraseña a establecer. Un
 
 
 
-Por defecto, se encuentra creado un usuario llamado probando, que no tiene permisos para acceder al panel de administración. 
+Por defecto, y a efectos de la demostración del funcionamiento del sitio, se ha creado un super usuario, que ya cuenta con un perfil propio y un posteo realizado. 
 
-usuario: probando
-contraseña: usuarioprobando
+usuario: admin
+contraseña: admin123
