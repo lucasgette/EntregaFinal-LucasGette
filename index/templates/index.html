@@ -37,9 +37,7 @@
                         
                         
                         <ul class="lista-enlaces">
-                            {% comment %} <li><a href={% url 'inicio' %}>Inicio</a></li>
-                            <li><a href={% url 'buscar_usuario' %}>Buscar usuarios</a></li>
-                            <li><a href={% url 'buscar_reviews' %}>Buscador Reviews</a></li> {% endcomment %}
+                      
                             <li><a href={% url 'home' %}>Inicio</a></li>
                             <li><a href={% url 'users_search' %}>Buscar usuarios</a></li>
                             <li><a href={% url 'post_section' %}>Sección Posts</a></li>
@@ -55,9 +53,7 @@
                     </div>
                     <div class="control-usuario">
                         <ul>
-                            {% comment %} <li><a href={% url 'my_profile' %}>Perfil</a></li>
-                            <li>Mis Reviews</li>
-                            <li><a href={% url 'logout' %}>Logout</a></li> {% endcomment %}
+                        
                             <li><a href={% url 'my_profile' %}>Perfil</a></li>
                             <li><a href={% url 'my_post_list' %}>Mis Reviews</a></li> 
                             <li><a href={% url 'logout' %}>Logout</a></li>
@@ -69,6 +65,7 @@
 
                 <nav>
                     <div class="cont-izq">
+
                         <a href={% url 'home' %}><img class='pagina-logo' src="{% static 'images/logo-1.png' %}" alt=""></a>       
                     </div>
 
@@ -96,7 +93,7 @@
         {% block perfil %}
         {% block nuevo_post %}
         {% block post %}
-
+        {% block main %}
 
             <div class='contenedor-inicio'>
                 <div class='sub-contenedor-inicio'>
@@ -134,7 +131,7 @@
                 {% endif %}
 
             </div>
-            
+        {% endblock main %}
         {% endblock post %}
         {% endblock nuevo_post %}
         {% endblock perfil %}

@@ -63,7 +63,7 @@
                 </div>
                 
             </div>
-        
+            <p style='text-align: center'><a style='text-decoration: none; color:white' href={% url 'change_password' %}>Cambiar contraseña</a></p>
 
             <div class='botones-perfil'>
                 <br>
@@ -77,8 +77,6 @@
                 <a class='boton' href={% url 'my_post_list' %}>Ver Posts</a>  
                 <a class='boton' href={% url 'new_post' %}>Crear post</a>
                 
-                {% comment %} <a class='boton' href={% url 'reviews' %}>Ver Posts</a>  
-                <a class='boton' href={% url 'crear_post' %}>Crear post</a> {% endcomment %}
             </div>
         </div>
         <hr>
@@ -96,8 +94,6 @@
                         <a class='post-detalles' href={% url 'post_detail' author=post.author pk=post.pk %}>Ver detalles</a> - 
                         <a class='post-detalles' href={% url 'edit_post' pk=post.pk %}>Editar</a> - 
                         <a class='post-detalles' href={% url 'delete_post' pk=post.pk %}>Borrar</a> 
-                        {% comment %} <a class='post-detalles' href={% url 'editar_review' author=post.author pk=post.pk %}>Editar</a> - 
-                        <a class='post-detalles' href={% url 'borrar_review' author=post.author pk=post.pk %}>Borrar</a>   {% endcomment %}
                         
                     </p>
 

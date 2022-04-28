@@ -4,7 +4,7 @@
 <title>Actualizar perfil</title>
 {% endblock titulo %}   
 
-{% block loginmain %}
+{% block main %}
 <div class='contenedor-edicion'>
     <h1>Editar perfil</h1>
     <div class='form-edicion'>
@@ -26,9 +26,7 @@
                 {% endif %}
                 
             </table>
-            {% comment %} <div class='contenedor-img'>
-                <a href="{{request.user.perfilusuario.imagen.url}}" target=_blank><img class='imagen-edicion' src="{{request.user.perfilusuario.imagen.url}}" alt="Foto perfil"></a>
-            </div> {% endcomment %}
+
             <div class='botones-edicion'>
                 <button class='boton' type="submit">Guardar cambios</button>
                 <button class='boton' type="reset">Reset</button>
@@ -40,4 +38,4 @@
 <div></div>
 
 
-{% endblock loginmain %}
+{% endblock main %}

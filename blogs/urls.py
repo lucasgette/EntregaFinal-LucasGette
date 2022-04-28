@@ -6,13 +6,13 @@ from .views import delete_comment, new_post, detail_post, edit_post, delete_post
 
 urlpatterns = [
     #Seeción principal de posts
-    path('post-section/', PostSectionView.as_view(), name='post_section'),
+    path('post-section/', login_required(PostSectionView.as_view()), name='post_section'),
     path('post/search', post_search, name='post_search'),
         # Listado total
-    path('pages',PostListView.as_view(), name='post_list'),
-        # Listado propio
+    path('pages',login_required(PostListView.as_view()), name='post_list'),
+
     path('my-pages', my_post_list , name='my_post_list'),
-    # CRUD para posts
+
     path('new-post', new_post , name='new_post'),
     path('pages/<int:pk>/edit', edit_post, name='edit_post'),
     path('pages/<int:pk>/delete', delete_post, name='delete_post'),

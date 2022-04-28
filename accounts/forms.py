@@ -18,9 +18,7 @@ class CreateUser(UserCreationForm):
 
 # Este modelo nos permite actualizar los datos del modelo User que vienen naturalmente
 
-class UserUpdateForm(forms.ModelForm):
-    # email = forms.EmailField()
-    
+class UserUpdateForm(forms.ModelForm):    
     class Meta:
         model = User
         fields = ['first_name','last_name','email']

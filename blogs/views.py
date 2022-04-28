@@ -1,10 +1,9 @@
-from multiprocessing import context
 from django.shortcuts import redirect, render
 from .forms import CrearPost, PostSearch, CommentForm
 from index.forms import ConfirmationForm
 from .models import Blog, Comments
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, TemplateView
 
 
 # Create your views here.
@@ -86,19 +85,7 @@ def edit_post(request, pk):
         return redirect('home')
 
 
-# def detail_post(request, pk, author):
-   
-#     post = Blog.objects.get(pk=pk)
-#     if post.author.username == author:
-
-#         context = {
-#             'post':post
-#         }
-#         return render(request, 'post_details.html', context)
-#     else:
-#         return redirect('home')
-
-
+@login_required
 def detail_post(request, pk, author):
     post = Blog.objects.get(pk=pk)
     if post.author.username == author:
@@ -148,6 +135,7 @@ class PostSectionView(TemplateView):
 
 # Buscador de posteos
 
+@login_required
 def post_search(request):
     search_form = PostSearch()
     if request.method == 'POST':
@@ -194,6 +182,7 @@ class PostListView(ListView):
     template_name = 'post_list.html'
 
 
+@login_required
 def my_post_list(request):
     author = request.user
     posts_list = Blog.objects.filter(author=author)
@@ -235,24 +224,3 @@ def delete_comment(request, pk, pkcomment):
     else:
         return redirect('home')   
 
-
-# @login_required
-# def new_comment(request, pk):
-#     if request.method == 'POST':
-#         comment_form = CommentForm(request.POST)
-#         if comment_form.is_valid():
-#             data = comment_form.cleaned_data
-#             commentator = request.user
-#             new_comment = Blog(commentator=commentator, post=Blog.objects.get(pk=pk))
-#             new_comment.save()
-#             return redirect(request.path)    
-
-#         else:
-#             return render(request, 'create_comment.html', {'comment_form':comment_form, 'msj':'Datos con formato incorrecto'} )            
-        
-#     else:
-#         comment_form = CommentForm()
-#         context = {
-#             'comment_form':comment_form,
-#         }
-#         return render(request,'create_comment.html',context)

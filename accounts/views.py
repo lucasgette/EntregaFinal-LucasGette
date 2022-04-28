@@ -1,4 +1,3 @@
-from multiprocessing import context
 from django.shortcuts import render, redirect
 
 from index.forms import ConfirmationForm
@@ -12,11 +11,9 @@ from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
 from blogs.models import Blog
-import os
+
 
 # Create your views here.
-
-
 
 
 # INICIAR SESION - VIEW
@@ -160,6 +157,7 @@ def my_profile(request):
 
 # PERFIL DE OTROS USUARIOS
 
+@login_required
 def other_user_profile(request, username):
     if username == request.user.username:
         return redirect('my_profile')
@@ -183,10 +181,9 @@ def other_user_profile(request, username):
         return render(request, 'other_user_profile.html', context)
 
 
-# BUSCADOR DE USUARIOS
-
 # Buscador de usuarios
 
+@login_required
 def users_search(request):
     search_form = SearchUser()
     if request.method == 'POST':
