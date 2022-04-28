@@ -1,10 +1,10 @@
 {% extends "index.html" %}
 
 {% block titulo %}
-<title>Borrar post</title>
+<title>Borrar comentario</title>
 {% endblock titulo %}   
 
-{% block loginmain %}
+{% block main %}
 <div class='contenedor-edicion'>
     <h1>Borrar comentario</h1>
     <p>¿Desea borrar el siguiente comentario?</p> 
@@ -33,4 +33,4 @@
 <div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
 
 
-{% endblock loginmain %}
+{% endblock main %}

@@ -16,21 +16,15 @@
         <h2>{{post.title}}</h2>
         <h3>{{post.subtitle}}</h3>
 
-
-        
-
-
-
         <div class='post-body'>{{post.body | safe}}</div>
         <br>
         <p class='p-calification'>Calificación otorgada: {{post.calification}}/10</p>
         {% if  post.blog_image%}
-        <img class='post-image' src={{post.blog_image.url}} alt="">
+        <div class='img-div'>
+            <img class='post-image' src={{post.blog_image.url}} alt="">
+        </div>
         {% endif %}
-        <br>
-
-
-    
+        <br>  
 
         <div class='author-details'>
             <img src={{post.author.userprofile.avatar.url}} alt="">
@@ -51,8 +45,6 @@
         <hr><br>
         <div>
             <h3>Comentarios</h3>
-
-
             
             {% if comments %}
                 {% for comentario in comments  %}
@@ -93,9 +85,6 @@
             </div>
             {% endif %}
         </div>
-
-
-
     </div>
 
 </div>

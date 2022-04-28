@@ -11,12 +11,10 @@
 
 
 
-{% block perfil %}
+{% block main %}
 <div class='contenedor-buscador'>
     <h3>Buscador de posts</h3>
     <img class='logo-busqueda' src={% static 'images/reviews-logo.png'%} alt="">
-  
-    
     
     <form class='buscador-form' action="" method='post'>
     {% csrf_token %}
@@ -60,4 +58,4 @@
 
 
 <div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
-{% endblock perfil %}
+{% endblock main %}

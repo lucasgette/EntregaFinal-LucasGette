@@ -42,14 +42,20 @@ a:hover {
 .date {
     color: #a0a0a0;
 }
+.img-div {
+    display: flex;
+    max-width: 500px;
+    margin: auto;
+}
+
 
 .post-image {
-    max-width: 500px;
-    max-height: 350px;
+    
+    max-width: 100%;
     position: relative;
     border-radius: 2%;
-    display: block;
-    margin: auto;
+    
+    
     box-shadow: 2px 2px 5px #000000;
 }
 

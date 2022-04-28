@@ -10,7 +10,6 @@ urlpatterns = [
     path('post/search', post_search, name='post_search'),
         # Listado total
     path('pages',login_required(PostListView.as_view()), name='post_list'),
-
     path('my-pages', my_post_list , name='my_post_list'),
 
     path('new-post', new_post , name='new_post'),

@@ -10,7 +10,7 @@
 {% endblock estilos %}
 
 
-{% block loginmain %}
+{% block main %}
 
 <div class='new-post-container'>
     <h3 class='seccion-titulo'>Editar Post</h3>
@@ -26,11 +26,10 @@
             <a href={% url 'home' %}><button type='button' class='new-post-btn'>Volver a inicio</button></a>
         </div>
     </form>
-   
-    {% comment %} <p class='registrar-msje'>Si ya tienes cuenta, inicia sesión presionando <a href={% url 'login' %}>Aquí</a></p> {% endcomment %}
+
 </div>
 
 
 
 
-{% endblock loginmain %}
+{% endblock main %}

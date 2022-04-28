@@ -63,9 +63,7 @@ def delete_post(request, pk):
 def edit_post(request, pk):
     post = Blog.objects.get(pk=pk)
     author = post.author
-
-    # AGREGAR LA LOGICA A EDITAR
-
+    
     if author == request.user:
         if request.method == 'POST':
             blog_form = CrearPost(request.POST, request.FILES, instance=post)

@@ -4,12 +4,12 @@
 <title>Borrar post</title>
 {% endblock titulo %}   
 
-{% block loginmain %}
+{% block main %}
 <div class='contenedor-edicion'>
     <h1>Borrar post</h1>
     <p>¿Desea borrar el siguiente post?</p> 
     <p>{{post}}</p>
-    <p>En caso afirmativo, el mismo será reemplazado por la imagen default.</p>
+    <p>En caso afirmativo, no podrá recuperarlo.</p>
     <div class='form-edicion'>
         <form action="" method='post' enctype="multipart/form-data">
             {% csrf_token %}
@@ -30,4 +30,4 @@
 <div class='final-links'><a href={% url 'home' %}>Volver a inicio</a> - <a href={% url 'my_profile' %}>Mi perfil</a></div>
 
 
-{% endblock loginmain %}
+{% endblock main %}

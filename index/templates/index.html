@@ -76,9 +76,6 @@
 
                         <a href={% url 'login' %}>Login</a>
                         <a href={% url 'register' %}>Registrate</a>
-        
-                
-                        </ul>  {% comment %} Revisar que no haya un error acá. Falta apertura del TAG ul {% endcomment %}
                     </div>
                 </nav>
 
@@ -109,16 +106,12 @@
                     <img class='pagina-logo-2' src="{% static 'images/logo-2.png' %}" alt="">
                 </div>
 
-                {% comment %} Si está logeado en la página, le da la opción de deslogearse {% endcomment %}
 
                 {% if user.is_authenticated %}
                 <p class='info-log'>Actualmente estas logeado/a como <b>{{user.username}}</b></p>    
                 <p class='final-links'><a href={% url 'logout' %}>Logout</a> - <a href={% url 'my_profile' %}>Perfil</a> </p>
 
-                {% comment %} <p><a href={% url 'logout' %}>Logout</a> - <a href={% url 'miperfil' %}>Perfil</a> </p>
-                <p><a href={% url 'reviews' %}>Reviews</a> </p> {% endcomment %}
 
-                {% comment %} Si no está logeado en la página, le da la opción de iniciar sesión {% endcomment %}
                 {% else %}
                     {% if registro_exitoso %}
                         <p>{{registro_exitoso}}</p>
